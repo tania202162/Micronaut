@@ -1,0 +1,28 @@
+micronaut:
+  application:
+    name: nossaCasaDoCodigo
+
+datasources:
+  default:
+#    url: jdbc:h2:mem:devDb
+#    driverClassName: org.h2.Driver
+#    username: sa
+#    password: ''
+#    dialect: H2
+
+    url: "jdbc:mysql://localhost:3306/casa_do_codigo_kotlin?serverTimezone=UTC&useLegacyDatetimeCode=false"
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: root
+    password: mysqlzup
+    dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+
+# O hibernate está gerando o schema do BD
+jpa.default.properties.hibernate.hbm2ddl.auto: update
+# Habilitar log de sql para ver rodando
+jpa.default.properties.hibernate.show_sql: true
+jpa.default.properties.hibernate.format_sql: true
+
+clients:
+  cep:
+    url: ${CEP_SERVER_URL:`https://viacep.com.br/ws/`}
+
